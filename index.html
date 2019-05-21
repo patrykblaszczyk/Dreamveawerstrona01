@@ -1,0 +1,185 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Dokument bez tytułu</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+/* ~~ Selektory elementów i znaczników ~~ */
+ul, ol, dl { /* Ze względu na różnice w zachowaniu przeglądarek, dobrą praktyką jest używanie marginesów i odstępów wewnętrznych o zerowej szerokości dla elementów typu lista. Aby ułatwić sobie zachowanie spójności, można określić pożądane wartości albo tutaj, albo w parametrach elementów listy (LI, DT, DD). Pamiętaj, że wszelkie wprowadzone tu wartości zostaną przeniesione kaskadowo na listy klasy .nav, chyba że utworzysz bardziej wyspecjalizowany selektor. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* Usunięcie górnego marginesu pozwala obejść problem związany z uciekaniem marginesów z bloku, w którym są zawarte. Pozostały margines dolny zapewni odstęp od kolejnych elementów. */
+	padding-right: 15px;
+	padding-left: 15px; /* Dodanie bocznych odstępów wewnętrznych (właściwość „padding”) do elementów umieszczanych wewnątrz bloku — zamiast do samego bloku — pozwala uniknąć konieczności przeprowadzania obliczeń położenia w modelu blokowym. Alternatywną metodą jest użycie zagnieżdżonego bloku z odstępami wewnętrznymi po bokach. */
+}
+a img { /* Ten selektor usuwa domyślną, niebieską ramkę, wyświetlaną przez niektóre przeglądarki wokół obrazków otoczonych łączem. */
+	border: none;
+}
+/* ~~ Ostylowanie łączy serwisu musi być definiowane w podanej tu kolejności. Dotyczy to również grupy selektorów odpowiedzialnych za efekt „hover” (zmianę wyglądu łącza po umieszczeniu nad nim kursora) ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* Jeśli nie zamierzasz tworzyć łączy o wyjątkowo nietypowym wyglądzie, najlepiej zachować wyróżnienie graficzne w postaci podkreślenia, które pozwala na szybkie zidentyfikowanie łącza. */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* Ta grupa selektorów jest odpowiedzialna za stworzenie efektu „hover” przy nawigacji za pomocą klawiatury, identycznego z efektem uzyskiwanym przez użytkownika korzystającego z myszy. */
+	text-decoration: none;
+}
+/* ~~ Ten kontener o stałej szerokości otacza wszystkie pozostałe bloki ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* Wartość „auto” dla marginesów bocznych wraz z podaną wartością szerokości zapewnia wyśrodkowanie układu. */
+}
+/* ~~ Nagłówek nie ma określonej szerokości. Rozszerzy się on do pełnej szerokości danego układu. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Kolumny układu ~~ 
+
+1) Odstępy wewnętrzne (właściwość „padding”) dodaje się tylko na górze i/lub na dole bloków. Elementy wewnątrz tych bloków mają odstępy wewnętrzne po bokach. Pozwala to uniknąć konieczności skomplikowanego obliczania położenia w modelu blokowym. Należy pamiętać, że jeśli zdefiniujesz odstępy wewnętrzne lub krawędzie po bokach dla bloku, to zostaną one dodane do zdefiniowanej szerokości bloku. Dlatego ostateczna szerokość całego bloku będzie inna. Możesz również usunąć odstępy wewnętrzne z elementu zawartego w bloku i umieścić go w kolejnym bloku bez zdefiniowanej szerokości, ale z podanymi odstępami wewnętrznymi.
+
+2) Dla kolumn nie zdefiniowano marginesu, ponieważ wszystkie są pływające. Jeśli musisz dodać margines, unikaj umieszczania go po tej stronie, do której przylega pływająca kolumna (np. prawego marginesu dla bloku z deklaracją „float:right”). Często zamiast marginesów można wykorzystać odstępy wewnętrzne. Dla bloków, w których trzeba zrezygnować z tej zasady, należy zdefiniować deklarację „display:inline” do reguły bloku. Pozwala to uniknąć błędu niektórych wersji przeglądarki Internet Explorer, skutkującego podwojeniem marginesów.
+
+3) Kolumnom przypisano nazwy klas, a nie identyfikatory, ponieważ klasę można zastosować wiele razy w obrębie jednego dokumentu (a każdy element może mieć wiele klas). Można np. zestawić dwa bloki tworzące pasek boczny. Jeśli wolisz, możesz łatwo zamienić klasy na identyfikatory, pamiętając jednak, że identyfikatorów można użyć tylko jeden raz w obrębie danego dokumentu.
+
+4) Jeśli wolisz umieścić pasek nawigacyjny po lewej stronie, zamiast po prawej, zmień po prostu wartość właściwości „float” na przeciwną (podając we wszystkich deklaracjach „float:left” zamiast „float:right”). Wówczas bloki same ułożą się w odwrotnej kolejności. Nie ma potrzeby przestawiania bloków w kodzie HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding: 10px 0;
+}
+
+/* ~~ Ten selektor grupowy obsługuje listy w bloku .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* Ten odstęp wewnętrzny jest odzwierciedleniem odstępu wewnętrznego z prawej, zdefiniowanego wcześniej w regule dla nagłówków i akapitów. Odstęp wewnętrzny na dole zapewnia odpowiednie odległości od innych elementów listy. Odstęp wewnętrzny z lewej tworzy wcięcie. Wartości te można swobodnie dostosowywać. */
+}
+
+/* ~~ Style listy nawigacyjnej (można je usunąć, jeśli wybierzesz gotowe rozwijane menu, takie jak obiekt Spry) */
+ul.nav {
+	list-style: none; /* Usuwa wyróżnienie listy. */
+	border-top: 1px solid #666; /* Tworzy górną krawędź łączy — wszystkie pozostałe są umieszczane z dolną krawędzią elementu LI. */
+	margin-bottom: 15px; /* Tworzy odstęp między polem nawigacyjnym a zawartością poniżej. */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* Tworzy linie rozdzielające przyciski. */
+}
+ul.nav a, ul.nav a:visited { /* Zgrupowanie tych selektorów gwarantuje, że łącza zachowają wygląd przycisku także po odwiedzeniu. */
+	padding: 5px 5px 5px 15px;
+	display: block; /* Powoduje, że łącze ma właściwość bloku, dzięki czemu wypełnia cały element LI, w którym się zawiera. W ten sposób cały obszar reaguje na kliknięcie myszą. */
+	width: 160px;  /*Podanie tej szerokości powoduje, że w przeglądarce IE6 cały przycisk będzie reagować na kliknięcie. Jeśli nie musisz zapewniać obsługi programu IE6, możesz usunąć tę deklarację. Oblicz odpowiednią szerokość, odejmując odstęp wewnętrzny łącza od szerokości kontenera paska bocznego. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* Zmienia kolor tła i tekstu przy nawigacji myszą i klawiaturą. */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ Stopka ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
+	position: relative;/* Włącza właściwość hasLayout dla programu IE6, zapewniając prawidłowe wyłączanie opływu. */
+	clear: both; /* Ta właściwość „clear” informuje blok .container, gdzie kończą się zawarte w nim kolumny i pozwala utrzymać je wewnątrz bloku. */
+}
+/* ~~ Różne klasy float/clear ~~ */
+.fltrt {  /* Ta klasa umożliwia tworzenie elementów pływających z prawej strony (właściwość „float:right”). Element pływający musi poprzedzać w kodzie element, obok którego ma się znajdować na stronie. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* Ta klasa umożliwia tworzenie elementów pływających z lewej strony (właściwość „float:left”). Element pływający musi poprzedzać w kodzie element, obok którego ma się znajdować na stronie. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* Tę klasę można wykorzystać w znaczniku <br /> lub w pustym bloku, który stanowi ostatni element za ostatnim pływającym blokiem (wewnątrz bloku o identyfikatorze .container), jeśli usunięto stopkę lub przeniesiono ją poza blok .container. */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Obsługa HTML5 – Ustawia nowe znaczniki HTML5 dla deklaracji display:block, aby umożliwić przeglądarkom poprawne ułożenie znaczników. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header>
+    <a href="index.html"><img src="logo.png" alt="Tutaj wstaw znak logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a>
+  </header>
+  <div class="sidebar1">
+    <ul class="nav">
+        <li><a href="xhtml.html">XHTML</a></li>
+        <li><a href="wyg.html">WYSIWYG</a></li>
+        <li><a href="sygnal.html">Przetwarzanie sygnału</a></li>
+        <li><a href="kompresja.html">Kompresja plików</a></li>
+    </ul>
+    <aside>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies blandit ex at pretium. Ut ullamcorper varius pulvinar. Pellentesque eget felis eros. Fusce pharetra suscipit accumsan. Mauris id ligula orci. Nullam egestas leo eget sem dapibus, eu eleifend leo ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam fermentum risus ex, nec facilisis mauris iaculis in. Suspendisse semper quam non odio bibendum, vel laoreet augue bibendum. In non tellus eget enim ornare scelerisque. Praesent sollicitudin fringilla leo, sed scelerisque elit vulputate id. Pellentesque vel elit id orci dapibus euismod. Nulla eros tellus, volutpat quis accumsan non, aliquam ac est. Proin cursus urna eget malesuada pharetra.</p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <section>
+      <h2>Lorem ipsum</h2>
+      <p>Ut diam est, semper et tempor eget, consectetur non sapien. Sed euismod interdum felis ac tempus. Donec sit amet ultricies neque. Nulla facilisis, quam non convallis accumsan, purus urna consectetur purus, eu dictum nisl orci et ipsum. Proin tincidunt, est id aliquam tempor, purus libero pulvinar sapien, sed malesuada neque mi quis felis. Pellentesque a vulputate sapien, et malesuada purus. Morbi sagittis, tortor vitae pretium interdum, enim ipsum lacinia augue, eget pharetra mauris ipsum eget lacus. Nullam euismod facilisis sodales. Aliquam ut consectetur dolor, et viverra metus. Phasellus orci neque, faucibus vitae ligula non, dignissim maximus magna. Maecenas tempor venenatis diam, ut venenatis nisl facilisis sit amet. Vivamus nisi nunc, laoreet eu vestibulum molestie, blandit vel dolor. Nulla suscipit dignissim porttitor.</p>
+  </section>
+    <section>
+      <h2>Metoda wyłączania opływu</h2>
+      <p>Ponieważ wszystkie kolumny są pływające, w tym układzie wprowadzono deklarację clear:both w regule klasy .footer. Taka technika wyłączania opływu wymusza prawidłowe zakończenie kolumn wewnątrz bloku klasy .container, tak aby krawędzie i tło tego bloku były prawidłowo wyświetlane. Jeśli układ wymaga usunięcia bloku .footer z bloku .container, musisz użyć innej metody wyłączania opływu. Najlepiej dodać element &lt;br class=&quot;clearfloat&quot; /&gt; lub &lt;div  class=&quot;clearfloat&quot;&gt;&lt;/div&gt; za ostatnią kolumną pływającą (ale przed zamknięciem bloku .container). Da to taki sam efekt wyłączenia opływu. </p>
+    </section>
+    <section>
+      <h2>Zastępowanie logo</h2>
+      <p>W tym układzie w bloku header, w miejscu, w którym użytkownicy zazwyczaj wstawiają swoje logo, znajduje się obraz zastępczy. Usuń ten obraz zastępczy i wstaw łącze do własnego logo. </p>
+      <p> Uwaga: Jeśli użyjesz Inspektora właściwości w celu nawigacji do obrazu logo za pomocą pola SRC (zamiast usunąć i zamienić obraz zastępczy), to musisz usunąć właściwości „background” i „display” wprowadzone w stylu wewnętrznym. Style wewnętrzne w znaczniku zostały użyte tylko po to, aby obraz zastępczy pojawiał się jako przykład w przeglądarkach. </p>
+      <p>Aby usunąć style wewnętrzne, ustaw panel Style CSS w tryb Bieżący. Zaznacz obraz i przejdź do panelu Właściwości w panelu Style CSS. Kliknij prawym przyciskiem myszy i usuń właściwości „display” i „background”. (Możesz oczywiście również przejść bezpośrednio do kodu i tam usunąć style wewnętrzne z obrazu zastępczego).</p>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <p>Etiam nisi turpis, rutrum vel turpis id, eleifend pellentesque diam. Curabitur vel euismod justo, a cursus enim. Sed vitae semper dui. Nulla malesuada consequat lectus, vitae dignissim metus tempus eget. Aenean rhoncus nisl quis sem fermentum sollicitudin. Phasellus convallis sem sit amet fermentum condimentum. Sed consequat ipsum sit amet vehicula commodo. Vestibulum placerat ante in nunc euismod cursus. Donec sit amet sollicitudin tellus. Quisque consequat dui eu justo fringilla elementum.  </p>
+  </aside>
+  <footer>
+    <p>Ten blok klasy footer zawiera deklarację position:relative. Dzięki temu program Internet Explorer interpretuje blok footer jako element o właściwości hasLayout i prawidłowo wyłącza opływy. Jeśli nie musisz zapewniać obsługi programu IE6, możesz usunąć tę deklarację.</p>
+    <address>
+      Zawartość adresu
+    </address>
+  </footer>
+  <!-- end .container --></div>
+</body>
+</html>
